@@ -12,6 +12,8 @@
 [core]
   pager = less -FRSX
 	editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+  ; old editor
+  ; editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
 
 [alias]
   co = checkout
@@ -22,6 +24,7 @@
   d = !git --no-pager diff
   dt  = difftool
   stat = !git --no-pager diff --stat
+  hist = log --pretty=format:\"%C(yellow)%h %C(reset)%ad | %s%Cred%d %Cgreen[%an]\" --graph --date=short --decorate --color --all
 
   # Clean merged branches
   sweep = !git branch --merged master | grep -v 'master$' | xargs git branch -d && git remote prune origin
